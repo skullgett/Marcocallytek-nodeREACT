@@ -51,9 +51,9 @@ function App() {
     <div class="content"></div>
       <div class="row"></div>
         <div class="col-lg-8"></div>
-          <h1 class="heading-1 main-head-1">
+          <h2 class="heading-1 main-head-1">
             Este es el mejor momento para empezar a invertir 
-            </h1>
+            </h2>
                   <h6 class="heading-6 mt-5">
                     Amazon es la acción más caliente del mercado: ¡El gigante del comercio electrónico sigue creciendo exponencialmente y tiene grandes planes para los próximos años!
                   </h6>

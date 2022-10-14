@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color:lightgray;
+}
+
+body {
+  background-color:whitesmoke;
 }
 
 .form {
@@ -8,7 +13,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-}
+  }
 
 .form.input {
   width: 300px;
@@ -16,4 +21,4 @@
   font-size: 20px;
   padding-left: 10px;
   margin: 10px;
-}
+  }

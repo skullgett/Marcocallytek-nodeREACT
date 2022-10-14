@@ -19,7 +19,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="icon" type="image/png" href="./images/favicon.ico" />
 	<link rel='shortcut icon' type='image/x-icon' href='./images/favicon.ico' />
     <!--
@@ -41,6 +42,44 @@
 
 	  gtag('config', 'AW-591477176');
 	</script>
+
+<script>
+
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var forms = document.getElementsByClassName('needs-validation');
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  (function($) {
+    $.fn.inputFilter = function(inputFilter) {
+      return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+        if (inputFilter(this.value)) {
+          this.oldValue = this.value;
+          this.oldSelectionStart = this.selectionStart;
+          this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+          this.value = this.oldValue;
+          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        } else {
+          this.value = "";
+        }
+      });
+    };
+  }(jQuery));
+  </script>
+
+
+
     </head>
   <body>
   <script>
@@ -55,6 +94,7 @@
 				<div class="col-lg-8 col-md-12 my-headings">
 					<h1 class="text-blue heading-1">¡Las acciones de<span class=" ml-2 text-uppercase orange">Amazon se disparan por los cielos!</span></h1>
 					</div>  
+        
   
     <div id="root"></div>
        

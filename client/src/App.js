@@ -1,8 +1,22 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from 'react';
 import './App.css';
 import { useState } from "react";
 import Axios from "axios";
+
+/*
+function phonenumber(Phone) {
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(Phone.value.match(phoneno)) {
+    return true;
+  }
+  else {
+    alert("message");
+    return false;
+  }
+}
+*/
 
 function App() {
 
@@ -18,8 +32,9 @@ function App() {
         Axios.get("http://localhost:3001/api/get").then((response)=>{
           setPhoneList(response.data);
         })
-       },[])       
-      
+       },[])      
+       
+             
     const submitPhone =()=>{
       Axios.post("http://localhost:3001/api/insert",{
         Name: Name, 
@@ -46,7 +61,7 @@ function App() {
 		                	<div class="d-flex justify-content-center"></div>
 		                		<div class="card" ></div>
 								  <div class="card-header text-center">
-								    Averigua cómo empezar a invertir en Amazon hoy
+								    Averigua cómo empezar a invertir en Amazon hoy!
 								  </div>
                                    
       <div className="form" class="card-body">
@@ -55,7 +70,7 @@ function App() {
         
       
         <label>Name </label>
-        <input type="text" class="form-control" placeholder="p. ej. Jose" required  name="Name" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="p. ej. José" required  name="Name" onChange={(e)=>{
           setName(e.target.value)
         }}/>
         <div class="invalid-feedback">El nombre es requerido</div>      

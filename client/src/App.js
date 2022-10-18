@@ -111,9 +111,9 @@ import PhoneInput from 'react-phone-number-input';
        <div>
        
        <label htmlfor="phoneNumber">Phone Number </label>
-       <input country={country} value={Phone} class="form-control" placeholder="Ej. 5531201869" id="PhoneNumber" name="phoneNumber"   onChange={(e)=>{
+       <input country={country} value={Phone} class="form-control telephone_number" maxlength="15" placeholder="Ej. 5531201869"  pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" id="PhoneNumber" name="phoneNumber"  onChange={(e)=>{
         setPhone(e.target.value)
-        }}/>
+        }}required/>
       </div>
       </form>
       </div>

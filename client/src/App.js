@@ -95,7 +95,7 @@ import PhoneInput from 'react-phone-number-input';
         
 
         <label>Email </label>
-        <input type="text" class="form-control" placeholder="Ej. holamundo@gmail.com" id="Email"  name="Email" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="Ej. josegarcia@gmail.com" id="Email"  name="Email" onChange={(e)=>{
           setEmail(e.target.value)
         }} required/> 
 
@@ -111,7 +111,7 @@ import PhoneInput from 'react-phone-number-input';
        <div>
        
        <label htmlfor="phoneNumber">Phone Number </label>
-       <input country={country} value={Phone} class="form-control" placeholder="Enter phone number" id="PhoneNumber" name="phoneNumber"   onChange={(e)=>{
+       <input country={country} value={Phone} class="form-control" placeholder="Ej. 5531201869" id="PhoneNumber" name="phoneNumber"   onChange={(e)=>{
         setPhone(e.target.value)
         }}/>
       </div>

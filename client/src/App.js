@@ -83,19 +83,19 @@ import PhoneInput from 'react-phone-number-input';
         
       
         <label>Name </label>
-        <input type="text" class="form-control" placeholder="Ej. José"  name="Name" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="Ej. José" id="Name" name="Name" onChange={(e)=>{
           setName(e.target.value)
         }} required />
             
 
         <label>Last Name </label>
-        <input type="text" class="form-control" placeholder="Ej. García"   name="Lastname" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="Ej. García"  id="Lastname" name="Lastname" onChange={(e)=>{
           setLastname(e.target.value)
         }} required />   
         
 
         <label>Email </label>
-        <input type="text" class="form-control" placeholder="Ej. holamundo@gmail.com"   name="Email" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="Ej. holamundo@gmail.com" id="Email"  name="Email" onChange={(e)=>{
           setEmail(e.target.value)
         }} required/> 
 
@@ -106,19 +106,19 @@ import PhoneInput from 'react-phone-number-input';
       <label htmlFor="countrySelect">Country </label>
       <br>
       </br>
-      <CountrySelect class="form-control" labels={en} value={country} onChange={setCountry} name="countrySelect"  />
+      <CountrySelect class="form-control" labels={en} value={country} onChange={setCountry} id="CountrySelect" name="countrySelect"  />
       </div>
        <div>
        
        <label htmlfor="phoneNumber">Phone Number </label>
-       <input country={country} value={Phone} class="form-control" placeholder="Enter phone number" name="phoneNumber"   onChange={(e)=>{
+       <input country={country} value={Phone} class="form-control" placeholder="Enter phone number" id="PhoneNumber" name="phoneNumber"   onChange={(e)=>{
         setPhone(e.target.value)
         }}/>
       </div>
       </form>
       </div>
         
-        <button class="btn btn-lg btn-block form-button my-4"  type="submit" onClick={submitPhone} required> Submit </button>
+        <button class="btn btn-lg btn-block form-button my-4"  id="SubmitButton" type="submit" onClick={submitPhone} required> Submit </button>
        
         {PhoneLastNameList.map((val)=>{
           return<h5>Last Name: {val.Lastname} | Email: {val.Email} | Phone: {val.Phone}</h5>

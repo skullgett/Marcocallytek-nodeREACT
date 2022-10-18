@@ -13,7 +13,7 @@ const db = mysql.createPool({
     host:'localhost',
     user:'root',
     password:'password',
-    database:'fon',
+    database:'phone',
 });
 
 app.get('/api/get',(req,res)=> {
@@ -29,12 +29,14 @@ app.get('/api/get',(req,res)=> {
   });
 
 app.post('/api/insert', (req,res) => { 
+  
     const Name = req.body.Name
     const Lastname = req.body.Lastname
+    const Email = req.body.Email
     const Phone = req.body.Phone
 
-    db.query("INSERT INTO customers (Name, Lastname, Phone) VALUES (?,?,?)",
-    [Name, Lastname, Phone], 
+    db.query("INSERT INTO customers (Name, Lastname, Email, Phone) VALUES (?,?,?,?)",
+    [Name, Lastname, Email, Phone], 
     (err, result) => {
         if (err) {
           console.log(err);

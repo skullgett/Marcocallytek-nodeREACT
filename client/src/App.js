@@ -6,24 +6,38 @@ import { useState } from "react";
 import Axios from "axios";
 
 /*
-function phonenumber(Phone) {
-  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  if(Phone.value.match(phoneno)) {
-    return true;
+export default function PhoneNumberInput(){
+  const [inputValue, setinputValue] = useState('');
+  const handleInput=e=> {
+    const formattedPhoneNumber = formatPhoneNumber(e.target.value);
+    setinputValue(formattedPhoneNumber);
+  };
+  return <input onChange={e=> handleInput(e)} value={inputValue} />;
+}
+
+function formatPhoneNumber(value) {
+  if (!value) return value;
+  const phoneNumber = value.replace(/[^\d]/g,'');
+  const phoneNumberLength = phoneNumber.Length;
+  if (phoneNumberLength < 8) return phoneNumber;
+  if (phoneNumberLength < 8 ) {
+    return `(${phoneNumber.slice(0,2)}) ${phoneNumber.slice(2)}`;
   }
-  else {
-    alert("message");
-    return false;
-  }
+  return `(${phoneNumber.slice(0,2)}) ${phoneNumber.slice(
+    2,
+    6,
+  )}-${phoneNumber.slice(6,10)}`;
 }
 */
 
-function App() {
+ function App() {
 
     const [Name, setName] = useState('');
     
-    const [Lastname, setLastname] = useState('');
-        
+    const [Lastname, setLastname] = useState(''); 
+    
+    const [Email, setEmail] = useState('');
+       
     const [Phone, setPhone] = useState('');
 
     const [PhoneLastNameList, setPhoneList] = useState([]);
@@ -39,9 +53,10 @@ function App() {
       Axios.post("http://localhost:3001/api/insert",{
         Name: Name, 
         Lastname: Lastname, 
+        Email: Email,
         Phone: Phone
       }).then (() => {
-        alert("Successful insert");
+        alert("Thank you, Now you are suscribed");
       });
     };   
   
@@ -70,26 +85,33 @@ function App() {
         
       
         <label>Name </label>
-        <input type="text" class="form-control" placeholder="p. ej. José" required  name="Name" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="Ej. José"  name="Name" onChange={(e)=>{
           setName(e.target.value)
-        }}/>
-        <div class="invalid-feedback">El nombre es requerido</div>      
+        }} required />
+            
 
         <label>Last Name </label>
-        <input type="text" class="form-control" placeholder="p. ej. García" required  name="Lastname" onChange={(e)=>{
+        <input type="text" class="form-control" placeholder="Ej. García"   name="Lastname" onChange={(e)=>{
           setLastname(e.target.value)
-        }}/>   
-        <div class="invalid-feedback">El apellido es requerido </div>
+        }} required />   
         
-       <label>Phone Number </label>       
-       <input type="text" class="form-control telephone_number" maxlength="15" placeholder="Número de teléfono" required  name="Phone" onChange={(e)=>{
+
+        <label>Email </label>
+        <input type="text" class="form-control" placeholder="Ej. holamundo@gmail.com"   name="Email" onChange={(e)=>{
+          setEmail(e.target.value)
+        }} required/>   
+            
+
+
+       <label for="phone">Phone Number </label>       
+       <input type="tel" class="form-control telephone_number" maxlength="15" placeholder="Ej. 55-12-34-56-78" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required  name="Phone" onChange={(e)=>{
           setPhone(e.target.value)
         }}/>
         <div class="invalid-feedback"> El número de teléfono se ingresó incorrectamente </div>
-        <button class="btn btn-lg btn-block form-button my-4"  type="submit" onClick={submitPhone}> Submit </button>
+        <button class="btn btn-lg btn-block form-button my-4"  type="submit" onClick={submitPhone} required> Submit </button>
        
         {PhoneLastNameList.map((val)=>{
-          return<h5>Last Name: {val.Lastname} | Phone: {val.Phone}</h5>
+          return<h5>Last Name: {val.Lastname} | Email: {val.Email} | Phone: {val.Phone}</h5>
         })}
         </form> 
         <div class="card-footer">

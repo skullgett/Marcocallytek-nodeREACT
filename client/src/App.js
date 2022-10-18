@@ -1,34 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { useState } from "react";
 import Axios from "axios";
+import { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
+import en from 'react-phone-number-input/locale/en.json';
+import PhoneInput from 'react-phone-number-input';
 
-/*
-export default function PhoneNumberInput(){
-  const [inputValue, setinputValue] = useState('');
-  const handleInput=e=> {
-    const formattedPhoneNumber = formatPhoneNumber(e.target.value);
-    setinputValue(formattedPhoneNumber);
-  };
-  return <input onChange={e=> handleInput(e)} value={inputValue} />;
-}
-
-function formatPhoneNumber(value) {
-  if (!value) return value;
-  const phoneNumber = value.replace(/[^\d]/g,'');
-  const phoneNumberLength = phoneNumber.Length;
-  if (phoneNumberLength < 8) return phoneNumber;
-  if (phoneNumberLength < 8 ) {
-    return `(${phoneNumber.slice(0,2)}) ${phoneNumber.slice(2)}`;
-  }
-  return `(${phoneNumber.slice(0,2)}) ${phoneNumber.slice(
-    2,
-    6,
-  )}-${phoneNumber.slice(6,10)}`;
-}
-*/
 
  function App() {
 
@@ -40,6 +18,22 @@ function formatPhoneNumber(value) {
        
     const [Phone, setPhone] = useState('');
 
+    const [country, setCountry] = useState();
+    
+        
+    const CountrySelect = ({ value, onChange, labels, ...rest }) => (
+    <select {...rest} value={value} onChange={(event) => onChange(event.target.value || undefined)}>
+     <option value="">{labels.ZZ}</option>
+    {getCountries().map((country) => (
+      <option key={country} value={country}>
+            {labels[country]} +{getCountryCallingCode(country)}
+          </option>
+        ))}
+      </select>
+    );
+    
+    
+
     const [PhoneLastNameList, setPhoneList] = useState([]);
 
        useEffect (()=>{
@@ -47,8 +41,9 @@ function formatPhoneNumber(value) {
           setPhoneList(response.data);
         })
        },[])      
+     
+    
        
-             
     const submitPhone =()=>{
       Axios.post("http://localhost:3001/api/insert",{
         Name: Name, 
@@ -56,11 +51,13 @@ function formatPhoneNumber(value) {
         Email: Email,
         Phone: Phone
       }).then (() => {
-        alert("Thank you, Now you are suscribed");
+        alert("Sucessful values inserted");
       });
     };   
   
-  return (         
+  return (       
+    
+    
     <div className="App">
     <div class="container mt-5"></div>
     <div class="content"></div>
@@ -80,6 +77,7 @@ function formatPhoneNumber(value) {
 								  </div>
                                    
       <div className="form" class="card-body">
+        
       
       <form id="mainForm-2" class="needs-validation" >
         
@@ -99,15 +97,27 @@ function formatPhoneNumber(value) {
         <label>Email </label>
         <input type="text" class="form-control" placeholder="Ej. holamundo@gmail.com"   name="Email" onChange={(e)=>{
           setEmail(e.target.value)
-        }} required/>   
-            
+        }} required/> 
 
-
-       <label for="phone">Phone Number </label>       
-       <input type="tel" class="form-control telephone_number" maxlength="15" placeholder="Ej. 55-12-34-56-78" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required  name="Phone" onChange={(e)=>{
-          setPhone(e.target.value)
+      <div>
+       <form>    
+      <div>
+               
+      <label htmlFor="countrySelect">Country </label>
+      <br>
+      </br>
+      <CountrySelect class="form-control" labels={en} value={country} onChange={setCountry} name="countrySelect"  />
+      </div>
+       <div>
+       
+       <label htmlfor="phoneNumber">Phone Number </label>
+       <input country={country} value={Phone} class="form-control" placeholder="Enter phone number" name="phoneNumber"   onChange={(e)=>{
+        setPhone(e.target.value)
         }}/>
-        <div class="invalid-feedback"> El número de teléfono se ingresó incorrectamente </div>
+      </div>
+      </form>
+      </div>
+        
         <button class="btn btn-lg btn-block form-button my-4"  type="submit" onClick={submitPhone} required> Submit </button>
        
         {PhoneLastNameList.map((val)=>{

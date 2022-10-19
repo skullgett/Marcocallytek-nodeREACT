@@ -10,8 +10,6 @@ import "./style.css";
 import FormPhoneComponent from './form-phone-validation';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-
-
  function App() {
 
     const [Name, setName] = useState('');
@@ -21,7 +19,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
     const [Email, setEmail] = useState('');
        
     const [Phone, setPhone] = useState('');
-
+   
     const [phonestatus, setPhonestatus] = useState({});
 
     function onSubmit(res) {
@@ -50,11 +48,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         alert("Sucessful values inserted");
       });
     };   
-  
-    
-  return (   
-    
-       
+      
+  return (            
     
     <div className="App">
     <div class="container mt-5"></div>
@@ -77,20 +72,17 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       <div className="form" class="card-body">
         
       
-      <form id="mainForm-2" class="needs-validation" >
-        
+      <form id="mainForm-2" class="needs-validation" >        
       
         <label>Name </label>
         <input type="text" class="form-control" placeholder="Ej. José" id="Name" name="Name" onChange={(e)=>{
           setName(e.target.value)
-        }} required />
-            
+        }} required />            
 
         <label>Last Name </label>
         <input type="text" class="form-control" placeholder="Ej. García"  id="Lastname" name="Lastname" onChange={(e)=>{
           setLastname(e.target.value)
-        }} required />   
-        
+        }} required />           
 
         <label>Email </label>
         <input type="text" class="form-control" placeholder="Ej. josegarcia@gmail.com" id="Email"  name="Email" onChange={(e)=>{
@@ -99,18 +91,23 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
       <div>
       <form>    
-      <FormPhoneComponent onPhoneSubmit={onSubmit}/>      
+      <FormPhoneComponent onPhoneSubmit={onSubmit}/>  
+          
       <div> Phone Number
       <PhoneInput
+      name="phone"
+      type="tel"
       maxlength="12" 
       placeholder="Ej. 55 3120 1869"  
       labels={en}
       defaultCountry="MX"
+      class="form-control telephone_number"
       className="phoneInput"
       value={Phone}
       onChange={Phone=>setPhone(Phone)}
       required
       />
+      
       Is it valid? {""}
       {Phone&& isPossiblePhoneNumber(Phone) ? "Yes" : "No"}
       <br></br>
@@ -118,7 +115,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       {Phone&& isValidPhoneNumber(Phone) ? "Yes" : "No"}
             
       </div>
-       <div>
+      <div>
      
       </div>
       </form>

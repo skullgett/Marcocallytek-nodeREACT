@@ -5,7 +5,9 @@ import './App.css';
 import Axios from "axios";
 import { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
 import en from 'react-phone-number-input/locale/en.json';
-import PhoneInput from 'react-phone-number-input';
+import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber, formatPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css'
+
 
 
  function App() {
@@ -17,6 +19,8 @@ import PhoneInput from 'react-phone-number-input';
     const [Email, setEmail] = useState('');
        
     const [Phone, setPhone] = useState('');
+
+    const [value, setValue]=useState();
 
     const [country, setCountry] = useState();
     
@@ -101,19 +105,28 @@ import PhoneInput from 'react-phone-number-input';
 
       <div>
        <form>    
-      <div>
-               
-      <label htmlFor="countrySelect">Country </label>
-      <br>
-      </br>
-      <CountrySelect class="form-control" labels={en} value={country} onChange={setCountry} id="CountrySelect" name="countrySelect"  />
+      
+      <div> Phone Number
+      <PhoneInput
+      maxlength="15" 
+      placeholder="Ej. 5531201869"  
+      labels={en}
+      defaultCountry="MX"
+      className="phoneInput"
+      value={Phone}
+      onChange={Phone=>setPhone(Phone)}
+      />
+      Is it possibe? {""}
+      {Phone&& isPossiblePhoneNumber(Phone) ? "Yes it is" : "No it isn't"}
+      <br></br>
+      Is it valid in this country? {""}
+      {Phone&& isValidPhoneNumber(Phone) ? "Yes it is" : "No it isn't"}
+      <br></br>
+      Local phone number: {""}
+      {Phone&& formatPhoneNumber(Phone) ? "Yes" : "No"}
       </div>
        <div>
-       
-       <label htmlfor="phoneNumber">Phone Number </label>
-       <input country={country} value={Phone} class="form-control telephone_number" maxlength="15" placeholder="Ej. 5531201869"  pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" id="PhoneNumber" name="phoneNumber"  onChange={(e)=>{
-        setPhone(e.target.value)
-        }}required/>
+     
       </div>
       </form>
       </div>

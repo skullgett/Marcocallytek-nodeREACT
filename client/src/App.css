@@ -22,3 +22,17 @@ body {
   padding-left: 10px;
   margin: 10px;
   }
+  .phoneInput{
+    width: 350px;
+  }
+  
+  .PhoneInputInput {
+  height: 40px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-color: rgb(10, 10, 10);
+  
+  }

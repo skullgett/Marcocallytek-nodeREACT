@@ -4,8 +4,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Axios from "axios";
 import en from 'react-phone-number-input/locale/en.json';
-import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber, formatPhoneNumber } from 'react-phone-number-input';
+import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'
+import "./style.css";
+import FormPhoneComponent from './form-phone-validation';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 
@@ -18,6 +21,16 @@ import 'react-phone-number-input/style.css'
     const [Email, setEmail] = useState('');
        
     const [Phone, setPhone] = useState('');
+
+    const [phonestatus, setPhonestatus] = useState({});
+
+    function onSubmit(res) {
+    setPhonestatus(res);
+  }
+  
+  useEffect(() => {
+    console.log('From App.js ', phonestatus);
+  }, [phonestatus]);
 
     const [PhoneLastNameList, setPhoneList] = useState([]);
 
@@ -38,8 +51,10 @@ import 'react-phone-number-input/style.css'
       });
     };   
   
-  return (       
     
+  return (   
+    
+       
     
     <div className="App">
     <div class="container mt-5"></div>
@@ -84,25 +99,24 @@ import 'react-phone-number-input/style.css'
 
       <div>
       <form>    
-      
+      <FormPhoneComponent onPhoneSubmit={onSubmit}/>      
       <div> Phone Number
       <PhoneInput
-      maxlength="15" 
-      placeholder="Ej. 5531201869"  
+      maxlength="12" 
+      placeholder="Ej. 55 3120 1869"  
       labels={en}
       defaultCountry="MX"
       className="phoneInput"
       value={Phone}
       onChange={Phone=>setPhone(Phone)}
+      required
       />
-      Is it possibe? {""}
-      {Phone&& isPossiblePhoneNumber(Phone) ? "Yes it is" : "No it isn't"}
+      Is it valid? {""}
+      {Phone&& isPossiblePhoneNumber(Phone) ? "Yes" : "No"}
       <br></br>
       Is it valid in this country? {""}
-      {Phone&& isValidPhoneNumber(Phone) ? "Yes it is" : "No it isn't"}
-      <br></br>
-      Local phone number: {""}
-      {Phone&& formatPhoneNumber(Phone) ? "Yes" : "No"}
+      {Phone&& isValidPhoneNumber(Phone) ? "Yes" : "No"}
+            
       </div>
        <div>
      
@@ -113,7 +127,7 @@ import 'react-phone-number-input/style.css'
         <button class="btn btn-lg btn-block form-button my-4"  id="SubmitButton" type="submit" onClick={submitPhone} required> Submit </button>
        
         {PhoneLastNameList.map((val)=>{
-          return<h5>Last Name: {val.Lastname} | Email: {val.Email} | Phone: {val.Phone}</h5>
+          return<h5> Name: {val.Name} | Last Name: {val.Lastname} | Email: {val.Email} | Phone: {val.Phone}</h5>
         })}
         </form> 
         <div class="card-footer">
@@ -190,8 +204,7 @@ import 'react-phone-number-input/style.css'
 
       </div>
       
-      </div>
-      
+      </div>      
       
       );
       }

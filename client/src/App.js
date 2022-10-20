@@ -1,15 +1,21 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react';
 import './App.css';
-import Axios from "axios";
-import en from 'react-phone-number-input/locale/en.json';
-import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber } from 'react-phone-number-input';
-import 'react-phone-number-input/style.css'
-import "./style.css";
-import FormPhoneComponent from './form-phone-validation';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Form from './Form';
 
+function App() {
+  return (
+    <div className="App">
+     <Form />
+
+    </div>
+  );
+}
+
+export default App;
+
+
+/*
  function App() {
 
     const [Name, setName] = useState('');
@@ -91,8 +97,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
       <div>
       <form>    
-      <FormPhoneComponent onPhoneSubmit={onSubmit}/>  
-          
+      <Form />                
       <div> Phone Number
       <PhoneInput
       name="phone"
@@ -208,3 +213,4 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 export default App;
 
+*/

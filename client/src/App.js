@@ -10,8 +10,6 @@ import "./style.css";
 import FormPhoneComponent from './form-phone-validation';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-
-
  function App() {
 
     const [Name, setName] = useState('');
@@ -21,24 +19,19 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
     const [Email, setEmail] = useState('');
        
     const [Phone, setPhone] = useState('');
-
+   
     const [phonestatus, setPhonestatus] = useState({});
 
     function onSubmit(res) {
     setPhonestatus(res);
   }
+
   
   useEffect(() => {
     console.log('From App.js ', phonestatus);
   }, [phonestatus]);
 
-    const [PhoneLastNameList, setPhoneList] = useState([]);
-
-       useEffect (()=>{
-        Axios.get("http://localhost:3001/api/get").then((response)=>{
-          setPhoneList(response.data);
-        })
-       },[])       
+    
                
     const submitPhone =()=>{
       Axios.post("http://localhost:3001/api/insert",{
@@ -50,11 +43,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         alert("Sucessful values inserted");
       });
     };   
-  
-    
-  return (   
-    
-       
+      
+  return (            
     
     <div className="App">
     <div class="container mt-5"></div>
@@ -67,6 +57,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
                   <h6 class="heading-6 mt-5">
                     Amazon es la acción más caliente del mercado: ¡El gigante del comercio electrónico sigue creciendo exponencialmente y tiene grandes planes para los próximos años!
                   </h6>
+                  
                   <div class="mt-5 d-sm-block d-md-block d-lg-none"></div>
 		                	<div class="d-flex justify-content-center"></div>
 		                		<div class="card" ></div>
@@ -77,71 +68,91 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       <div className="form" class="card-body">
         
       
-      <form id="mainForm-2" class="needs-validation" >
-        
+      <form id="mainForm-2" class="needs-validation" >        
       
         <label>Name </label>
-        <input type="text" class="form-control" placeholder="Ej. José" id="Name" name="Name" onChange={(e)=>{
+        <input type="text" 
+        class="form-control" 
+        placeholder="Ej. José" 
+        id="Name" 
+        name="Name" 
+        onChange={(e)=>{
           setName(e.target.value)
-        }} required />
-            
+        }} required />            
 
         <label>Last Name </label>
-        <input type="text" class="form-control" placeholder="Ej. García"  id="Lastname" name="Lastname" onChange={(e)=>{
+        <input type="text" 
+        class="form-control" 
+        placeholder="Ej. García"  
+        id="Lastname" 
+        name="Lastname" 
+        onChange={(e)=>{
           setLastname(e.target.value)
-        }} required />   
-        
+        }} required />           
 
         <label>Email </label>
-        <input type="text" class="form-control" placeholder="Ej. josegarcia@gmail.com" id="Email"  name="Email" onChange={(e)=>{
+        <input type="text" 
+        class="form-control"
+         placeholder="Ej. josegarcia@gmail.com" 
+         id="Email"  
+         name="Email" 
+         onChange={(e)=>{
           setEmail(e.target.value)
         }} required/> 
 
       <div>
       <form>    
-      <FormPhoneComponent onPhoneSubmit={onSubmit}/>      
+        
+          
       <div> Phone Number
       <PhoneInput
+      name="phone"
+      type="tel"
       maxlength="12" 
       placeholder="Ej. 55 3120 1869"  
       labels={en}
       defaultCountry="MX"
+      class="form-control telephone_number"
       className="phoneInput"
       value={Phone}
       onChange={Phone=>setPhone(Phone)}
       required
       />
-      Is it valid? {""}
-      {Phone&& isPossiblePhoneNumber(Phone) ? "Yes" : "No"}
+      
+       {""}
+      {Phone&& isPossiblePhoneNumber(Phone) ? 
+      "Valid number" : "Please enter a valid number"}
       <br></br>
-      Is it valid in this country? {""}
-      {Phone&& isValidPhoneNumber(Phone) ? "Yes" : "No"}
-            
+       {""}
+      {Phone&& isValidPhoneNumber(Phone) ? 
+      "Valid number for this country" : "Please enter a valid number for this country"}
+      <FormPhoneComponent onPhoneSubmit={onSubmit}/>      
       </div>
-       <div>
+      <div>
      
       </div>
       </form>
       </div>
         
-        <button class="btn btn-lg btn-block form-button my-4"  id="SubmitButton" type="submit" onClick={submitPhone} required> Submit </button>
+        <button class="btn btn-lg btn-block form-button my-4"  
+        id="SubmitButton" type="submit" 
+        onClick={submitPhone} required> 
+        Empieza a invertir en Amazon 
+        <strong> YA!</strong> </button>
        
-        {PhoneLastNameList.map((val)=>{
-          return<h5> Name: {val.Name} | Last Name: {val.Lastname} | Email: {val.Email} | Phone: {val.Phone}</h5>
-        })}
-        </form> 
-        <div class="card-footer">
-        <button onclick={""} class="btn btn-block btn-lg text-white font-weight-bold btn-1"> Empieza a invertir en acciones de Amazon</button>
-
-        <footer>
+       </form> 
+        <div class="card-footer">        
+      <footer>
 		<div class="container mt-5 py-5 disclaimer">
 			<p><small>Disclaimer:</small></p>
 			<p><small>All Amazon logos are trademarks of Amazon.com, Inc. or its affiliates.</small></p>
 			
 			<nav class="navbar navbar-expand-lg d-flex justify-content-center mt-3">
 			    <div class="navbar-nav">
-			      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#terms">Términos y Condiciones</a>
-			      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#about">Acerca de nosotros</a>
+			      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#terms">
+              Términos y Condiciones</a>
+			      <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#about">
+              Acerca de nosotros</a>
 			    </div>
 			</nav>
 			<p class="text-center mt-3"><small>© insiderfinanciero.com</small></p>

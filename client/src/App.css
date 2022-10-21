@@ -1,10 +1,11 @@
 .App {
   text-align: center;
   background-color:lightgray;
+  background: linear-gradient(90deg, rgb(59, 59, 59) 0%, rgb(44, 182, 242) 100%);
 }
 
 body {
-  background-color:whitesmoke;
+  background: linear-gradient(90deg, rgb(48, 47, 47) 0%, rgb(62, 195, 252) 100%);
 }
 
 .form {
@@ -36,3 +37,7 @@ body {
   border-color: rgb(10, 10, 10);
   
   }
+
+  
+
+  

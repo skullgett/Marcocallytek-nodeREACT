@@ -61,6 +61,7 @@ class FormPhoneComponent extends React.Component {
             <strong>Phone</strong>
           </label>
           <input
+          maxlength="12" 
             type="phone"
             name="phone"
             value={this.state.phone}

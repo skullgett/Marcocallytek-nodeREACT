@@ -1,21 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import Form from './Form';
-
-function App() {
-  return (
-    <div className="App">
-     <Form />
-
-    </div>
-  );
-}
-
-export default App;
+import Axios from "axios";
+import en from 'react-phone-number-input/locale/en.json';
+import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css'
+import "./style.css";
+import FormPhoneComponent from './form-phone-validation';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
-/*
+
  function App() {
 
     const [Name, setName] = useState('');
@@ -25,7 +21,7 @@ export default App;
     const [Email, setEmail] = useState('');
        
     const [Phone, setPhone] = useState('');
-   
+
     const [phonestatus, setPhonestatus] = useState({});
 
     function onSubmit(res) {
@@ -54,8 +50,11 @@ export default App;
         alert("Sucessful values inserted");
       });
     };   
-      
-  return (            
+  
+    
+  return (   
+    
+       
     
     <div className="App">
     <div class="container mt-5"></div>
@@ -78,17 +77,20 @@ export default App;
       <div className="form" class="card-body">
         
       
-      <form id="mainForm-2" class="needs-validation" >        
+      <form id="mainForm-2" class="needs-validation" >
+        
       
         <label>Name </label>
         <input type="text" class="form-control" placeholder="Ej. José" id="Name" name="Name" onChange={(e)=>{
           setName(e.target.value)
-        }} required />            
+        }} required />
+            
 
         <label>Last Name </label>
         <input type="text" class="form-control" placeholder="Ej. García"  id="Lastname" name="Lastname" onChange={(e)=>{
           setLastname(e.target.value)
-        }} required />           
+        }} required />   
+        
 
         <label>Email </label>
         <input type="text" class="form-control" placeholder="Ej. josegarcia@gmail.com" id="Email"  name="Email" onChange={(e)=>{
@@ -97,22 +99,18 @@ export default App;
 
       <div>
       <form>    
-      <Form />                
+      <FormPhoneComponent onPhoneSubmit={onSubmit}/>      
       <div> Phone Number
       <PhoneInput
-      name="phone"
-      type="tel"
       maxlength="12" 
       placeholder="Ej. 55 3120 1869"  
       labels={en}
       defaultCountry="MX"
-      class="form-control telephone_number"
       className="phoneInput"
       value={Phone}
       onChange={Phone=>setPhone(Phone)}
       required
       />
-      
       Is it valid? {""}
       {Phone&& isPossiblePhoneNumber(Phone) ? "Yes" : "No"}
       <br></br>
@@ -120,7 +118,7 @@ export default App;
       {Phone&& isValidPhoneNumber(Phone) ? "Yes" : "No"}
             
       </div>
-      <div>
+       <div>
      
       </div>
       </form>
@@ -213,4 +211,3 @@ export default App;
 
 export default App;
 
-*/

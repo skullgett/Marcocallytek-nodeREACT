@@ -8,7 +8,6 @@ import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber } from 'react-phon
 import 'react-phone-number-input/style.css'
 import "./style.css";
 import FormPhoneComponent from './form-phone-validation';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
  function App() {
 
@@ -18,8 +17,31 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
     
     const [Email, setEmail] = useState('');
        
-    const [Phone, setPhone] = useState('');   
-               
+    const [Phone, setPhone] = useState('');
+
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+   fetch("https://api.ipregistry.co/?key=ccu1zlzhgetyu5", requestOptions)
+   .then((response) => response.json())
+   .then((result) => {
+    localStorage.setItem(
+      "calling_code",
+      "+" + result.location.country.calling_code
+    );
+    localStorage.setItem("country", result.location.country.code);
+    localStorage.setItem("country_name", result.location.country.name);
+    var countryCode = document.getElementById("countryCode-1");
+    var countryCode2 = document.getElementById("countryCode-2");
+    countryCode.value = "+" + result.location.country.calling_code;
+    countryCode2.value = "+" + result.location.country.calling_code;
+    localStorage.setItem("lang", result.location.language.code);
+  })
+   .catch((error) => console.log("error", error));
+
+   
+
     const submitPhone =()=>{
       Axios.post("http://localhost:3001/api/insert",{
         Name: Name, 
@@ -102,8 +124,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
       <div>
       <form>    
-        
-          
+                
       <div> Phone Number
       <PhoneInput 
       id= "Phone"
@@ -112,21 +133,21 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       maxLength="12" 
       placeholder="Ej. 55 3120 1869"  
       labels={en}
-      defaultCountry="MX"
+      defaultCountry={localStorage.getItem("country")}
       class="form-control telephone_number"
       className="phoneInput"
       value={Phone}
       onChange={Phone=>setPhone(Phone)}
       required
       />
-      
-       {""}
+      {""}
       {Phone&& isPossiblePhoneNumber(Phone) ? 
       "Valid number" : "Please enter a valid number"}
       <br></br>
        {""}
       {Phone&& isValidPhoneNumber(Phone) ? 
       "Valid number for this country" : "Please enter a valid number for this country"}
+
       <FormPhoneComponent onPhoneSubmit={onSubmit}/>      
       </div>
       <div>

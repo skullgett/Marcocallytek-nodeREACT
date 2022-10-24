@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Axios from "axios";
-import en from 'react-phone-number-input/locale/en.json';
 import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber } from 'react-phone-number-input';
-import 'react-phone-number-input/style.css'
-import "./style.css";
 import FormPhoneComponent from './form-phone-validation';
+import React, { useEffect, useState } from 'react';
+import en from 'react-phone-number-input/locale/en.json';
+import Axios from "axios";
+import 'react-phone-number-input/style.css'
+import './App.css';
+import "./style.css";
 
  function App() {
 
@@ -40,8 +40,6 @@ import FormPhoneComponent from './form-phone-validation';
   })
    .catch((error) => console.log("error", error));
 
-   
-
     const submitPhone =()=>{
       Axios.post("http://localhost:3001/api/insert",{
         Name: Name, 
@@ -67,7 +65,6 @@ import FormPhoneComponent from './form-phone-validation';
 ///////////////////////////////////////////////////////////////////
       
   return (            
-    
     <div className="App">
     <div class="container mt-5"></div>
     <div class="content"></div>
@@ -86,9 +83,8 @@ import FormPhoneComponent from './form-phone-validation';
 								  <div class="card-header text-center">
 								    Averigua cómo empezar a invertir en Amazon hoy!
 								  </div>
-                                   
-      <div className="form" class="card-body">
-        
+
+      <div className="form" class="card-body">      
       
       <form id="mainForm-2" class="needs-validation" >        
       

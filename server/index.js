@@ -36,6 +36,7 @@ app.post('/api/insert', (req,res) => {
     const Phone = req.body.Phone
 
     db.query("INSERT INTO customers (Name, Lastname, Email, Phone) VALUES (?,?,?,?)",
+    //select current_timestamp();
     [Name, Lastname, Email, Phone], 
     (err, result) => {
         if (err) {

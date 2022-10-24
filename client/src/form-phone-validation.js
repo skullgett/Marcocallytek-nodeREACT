@@ -24,7 +24,7 @@ class FormPhoneComponent extends React.Component {
     return !(!this.state.phone || regex.test(this.state.phone) === false);
   }
 
-  onSubmit() {
+  onSubmit() {    
     const isPhoneValid = this.phoneValidation();
     this.setState(
       {
@@ -61,9 +61,6 @@ class FormPhoneComponent extends React.Component {
             <strong>Phone</strong>
           </label>
           <input
-          maxlength="12" 
-            type="phone"
-            name="phone"
             value={this.state.phone}
             onChange={this.onChange}
             className="form-control"

@@ -18,20 +18,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
     
     const [Email, setEmail] = useState('');
        
-    const [Phone, setPhone] = useState('');
-   
-    const [phonestatus, setPhonestatus] = useState({});
-
-    function onSubmit(res) {
-    setPhonestatus(res);
-  }
-
-  
-  useEffect(() => {
-    console.log('From App.js ', phonestatus);
-  }, [phonestatus]);
-
-    
+    const [Phone, setPhone] = useState('');   
                
     const submitPhone =()=>{
       Axios.post("http://localhost:3001/api/insert",{
@@ -43,6 +30,19 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         alert("Sucessful values inserted");
       });
     };   
+   
+////////////////////////////////////////////////////////////////////
+    const [phonestatus, setPhonestatus] = useState({});
+
+    function onSubmit(res) {
+    setPhonestatus(res);
+  }
+
+  
+  useEffect(() => {
+    console.log('From App.js ', phonestatus);
+  }, [phonestatus]);
+///////////////////////////////////////////////////////////////////
       
   return (            
     
@@ -105,10 +105,11 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
         
           
       <div> Phone Number
-      <PhoneInput
-      name="phone"
+      <PhoneInput 
+      id= "Phone"
+      name="Phone"
       type="tel"
-      maxlength="12" 
+      maxLength="12" 
       placeholder="Ej. 55 3120 1869"  
       labels={en}
       defaultCountry="MX"

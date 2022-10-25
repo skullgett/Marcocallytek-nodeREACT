@@ -158,7 +158,6 @@ import "./style.css";
                         
                        <strong> Solicitar informacion</strong> 
                         </button>  
-                        <img src="pay-logos.png" alt="imagen2" class="img-fluid mt-5"></img>                                   
                         </form>                        
                         </div> 
                         <img src="side-banner.jpg" alt="imagen" class="img-fluid mt-5"></img> 

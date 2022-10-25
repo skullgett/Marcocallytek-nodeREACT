@@ -72,13 +72,13 @@ import "./style.css";
         <div class="col-lg-8"></div>         
                   
         <div class="mt-5 d-sm-block d-md-block d-lg-none">
-		                	<div class="d-flex justify-content-center">
+		                	  <div class="d-flex justify-content-center">
 		                		<div class="card" >
-								  <div class="card-header text-center">
-								       Averigua cómo empezar a invertir en Amazon hoy!
-								       </div></div></div></div>
+								        <div class="card-header text-center">
+								        Averigua cómo empezar a invertir en Amazon hoy!
+								        </div></div></div></div>
 
-                       <div className="form" class="card-body">      
+                        <div className="form" class="card-body">      
       
                         <form id="mainForm-2" class="needs-validation" >        
       
@@ -159,15 +159,13 @@ import "./style.css";
                        <strong> Solicitar informacion</strong> 
                         </button>  
                                                                    
-                        </form> </div> </div>
-                        
-        
-        
-       
-     
-      
-      );
-      }
+                        </form>                        
+                        </div> 
+                        <img src="side-banner.jpg" alt="imagen" class="img-fluid mt-5"></img> 
+                        </div> 
+                                    
+);
+}
 
 export default App;
 

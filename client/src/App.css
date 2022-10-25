@@ -1,11 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+*{
+	font-family: 'Lato', sans-serif;
+}
+
 .App {
   text-align: center;
   background-color:whitesmoke;
-  
-}
+  }
 
 .card-body {
   background-color:whitesmoke;
+}
+
+.disclaimer {
+	color: #a6a6a6;
+	font-size: 0.8em;
+  line-height: 1;  
+}
+
+.disclaimer p small{
+	font-size: 14px !important;
 }
 
 .form {
@@ -23,6 +38,41 @@
   padding-left: 10px;
   margin: 10px;
   }
+
+  .h {
+    float: right;
+  }
+ 
+  header{
+    background-color:#101F4A;
+    padding: 70px 0px 70px 0px; 
+    height: 100px;
+  }
+  
+  .heading-1 {
+    background-color:#101F4A;      
+    }
+    
+  .info__title{    
+    font-size: 25px;
+    border-left: 8px solid var(--bs-secondary);
+    padding: 12px 35px 12px 35px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    content: "✔";
+    color: #F69F14;
+    font-size: 21px;
+    padding-right: 5px;
+  }
+    
+
+  .orange{
+    color : #F69F14;
+  }
+
   .phoneInput{
     width: 350px;
   }
@@ -39,26 +89,7 @@
 
   .right {
     float: right;
-  } 
-  
-  .h {
-    float: right;
-  } 
+  }   
 
-  .orange{
-    color : #F69F14;
-  }
-  
-  .heading-1 {
-    background-color:#101F4A;      
-    }
-
-    .info__title{    
-    font-size: 25px;
-    border-left: 8px solid var(--bs-secondary);
-    padding: 12px 35px 12px 35px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
 
   

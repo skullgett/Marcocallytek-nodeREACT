@@ -157,7 +157,8 @@ import "./style.css";
                         required> 
                         
                         Empieza a invertir en Amazon <strong> YA!</strong> 
-                        </button>                                              
+                        </button>  
+                                                                   
                         </form> </div> </div>
                         
         

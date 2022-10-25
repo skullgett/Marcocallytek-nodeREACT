@@ -156,7 +156,7 @@ import "./style.css";
                         onClick={submitPhone} 
                         required> 
                         
-                        Empieza a invertir en Amazon <strong> YA!</strong> 
+                       <strong> Solicitar informacion</strong> 
                         </button>  
                                                                    
                         </form> </div> </div>

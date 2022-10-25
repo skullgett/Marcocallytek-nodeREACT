@@ -71,12 +71,12 @@ import "./style.css";
       <div class="row"></div>
         <div class="col-lg-8"></div>         
                   
-                  <div class="mt-5 d-sm-block d-md-block d-lg-none"></div>
-		                	<div class="d-flex justify-content-center"></div>
-		                		<div class="card" ></div>
-								       <div class="card-header text-center">
+        <div class="mt-5 d-sm-block d-md-block d-lg-none">
+		                	<div class="d-flex justify-content-center">
+		                		<div class="card" >
+								  <div class="card-header text-center">
 								       Averigua cómo empezar a invertir en Amazon hoy!
-								       </div>
+								       </div></div></div></div>
 
                        <div className="form" class="card-body">      
       
@@ -157,8 +157,9 @@ import "./style.css";
                         required> 
                         
                         Empieza a invertir en Amazon <strong> YA!</strong> 
-                        </button>
+                        </button>                                              
                         </form> </div> </div>
+                        
         
         
        

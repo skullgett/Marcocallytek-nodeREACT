@@ -2,6 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
 
+.CONTENEDOR{
+  background-color: lightgray;
+  font-size: 20px;
+  line-height: 2.5;
+  height: 155px;
+  width: 600px;
+  padding-right: 5px;
+  margin: 80px;
+  content: "✔";
+  color: black;
+}
+
 *{
 	font-family: 'Lato', sans-serif;
 	box-sizing: border-box;
@@ -25,7 +37,7 @@
 
 .disclaimer {
     color: #a6a6a6;
-	font-size: 0.8em;
+	  font-size: 0.8em;
     line-height: 1;  
 }
 
@@ -71,13 +83,6 @@ header{
     margin-bottom: 20px;
 }
 
-.list {
-    content: "✔";
-    color: #F69F14;
-    font-size: 21px;
-    padding-right: 5px;
-}
-   
 .orange{
     color : #F69F14;
 }

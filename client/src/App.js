@@ -65,7 +65,7 @@ import "./style.css";
 ///////////////////////////////////////////////////////////////////
       
   return ( 
-    <header>    
+           <header>    
       		         <div class="container">
 			             <div class="row">
 				            <div class="col-lg-8 col-md-12 my-headings">
@@ -169,19 +169,18 @@ import "./style.css";
                         </button>  
                         </form>                        
                         </div>  
-                        <div class="card-footer">                       
-                        </div>
-                        <img src="pay-logos.png" ALT="IMAGEN"></img>
-                        </div>
-                        </div> 
-                        </div>  
-                        </div>                         
-                        </header>
-
-
-
-	
-	
+                        <div class="card-footer">  
+                        <img src="pay-logos.png" alt="IMAGEN" class="img-fluid"></img>                     
+                        </div>                        
+                      </div>
+                      <div class="col-lg-4 d-none d-lg-block" >
+                      <img src="side-banner.jpg" alt="IMAGEN"></img>
+                      </div>
+                  </div> 
+                </div>  
+              </div>                         
+        </header>
+   
                                   
 );
 }

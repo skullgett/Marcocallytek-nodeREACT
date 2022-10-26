@@ -64,6 +64,7 @@ import "./style.css";
 ///////////////////////////////////////////////////////////////////
       
   return ( 
+<main>
            <header>    
       		         <div class="container">
 			             <div class="row">
@@ -181,6 +182,9 @@ import "./style.css";
                 </div>  
               </div>                         
         </header>
+                
+</main>
+        
    
                                   
 );

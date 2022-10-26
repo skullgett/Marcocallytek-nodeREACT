@@ -42,7 +42,7 @@ app.post('/api/insert', (req,res) => {
         if (err) {
           console.log(err);
         } else {
-          res.send("Values Inserted");
+          res.send("Pronto nos comunicaremos contigo");
         }
       });
   });

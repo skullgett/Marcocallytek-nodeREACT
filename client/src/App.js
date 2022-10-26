@@ -64,62 +64,76 @@ import "./style.css";
   }, [phonestatus]);
 ///////////////////////////////////////////////////////////////////
       
-  return (            
-    <div className="App" class="right">
-    <div class="container mt-5"></div>
-    <div class="content"></div>
-      <div class="row"></div>
-        <div class="col-lg-8"></div>         
-                  
-        <div class="mt-5 d-sm-block d-md-block d-lg-none">
-		                	  <div class="d-flex justify-content-center">
-		                		<div class="card" >
-								        <div class="card-header text-center">
-								        Averigua cómo empezar a invertir en Amazon hoy!
-								        </div></div></div></div>
+  return ( 
+    <header>    
+      		         <div class="container">
+			             <div class="row">
+				            <div class="col-lg-8 col-md-12 my-headings">
+					          <h1 class="text-white heading-1">¡Las acciones de<span class=" ml-2 text-uppercase orange">Amazon</span></h1>
+					          <h1 class="text-white heading-1">se disparan por los cielos!</h1>
+				            </div>      
+		                  <div class="col-lg-4" id="header-form">
+					           <div class="d-none d-lg-block card" >
+					           <div class="card-header text-center">
+                        
+								       Averigua cómo empezar a invertir en Amazon hoy!
+								       </div>
+                       
 
-                        <div className="form" class="card-body">      
+                        <div class="card-body">       
+                        <form id="mainForm-1" class="needs-validation" >  
+                        <div class="form-group">    
       
-                        <form id="mainForm-2" class="needs-validation" >        
-      
-                        <label>Name </label>
-                        <input type="text" 
+                        <label class="form-label" for="nombre">Name </label>
+                        <input type="text"                         
                         class="form-control" 
                         placeholder="Ej. José" 
-                        id="Name" 
-                        name="Name" 
+                        id="nombre"                          
                         onChange={(e)=>{
                         setName(e.target.value)
-                        }} required />            
+                        }} required />  
+                        <div class="invalid-feedback">REQUERIDO</div>  
+                        </div>
 
-                        <label>Last Name </label>
+                        <div class="form-group">						  
+                        <label class="form-label" for="apellido">Last Name </label>
                         <input type="text" 
                         class="form-control" 
                         placeholder="Ej. García"  
-                        id="Lastname" 
-                        name="Lastname" 
+                        id="apellido"                          
                         onChange={(e)=>{
                         setLastname(e.target.value)
-                        }} required />   
+                        }} required />
+                        <div class="invalid-feedback">
+						            El apellido es requerido
+						            </div>
+						            </div>  
 
-                        <label>Email </label>
-                        <input type="text" 
+                        <div class="form-group">
+                        <label class="form-label" for="CorreoElectrónico">Email </label>
+                        <input type="email" 
                         class="form-control"
                         placeholder="Ej. josegarcia@gmail.com" 
-                        id="Email"  
-                        name="Email" 
+                        id="CorreoElectrónico"                          
                         onChange={(e)=>{setEmail(e.target.value)}} 
                         required/> 
+                        <div class="invalid-feedback">
+						            El correo electrónico se ingresó incorrectamente.
+						            </div>
+						            </div>        
                         
-                        <div>
-                        <form>
-                        <div> 
-                        Phone Number 
+                        <div class="form-group">
+                        <label class="form-label" for="NúmerodeTeléfono">Phone Number</label>
+                        <div class="input-group">
+							          <div class="input-group-prepend col-3 px-0"> 
+                        <input type="text" class="form-control" id="countryCode-1" disabled></input>                       
+                        </div>								
+								
                         <PhoneInput 
-                        id= "Phone"
+                        id="NúmerodeTeléfono"
                         name="Phone"
-                        type="tel" 
-                        maxLength="12" 
+                        type="text" 
+                        maxLength="15" 
                         placeholder="Ej. 55 3120 1869" 
                         labels={en}
                         defaultCountry={localStorage.getItem("country")}
@@ -138,31 +152,37 @@ import "./style.css";
                         {""}
                         {Phone&& isValidPhoneNumber(Phone) ? 
                         "Valid number for this country" : "Please enter a valid number for this country"}
-                        
-                        <FormPhoneComponent 
-                        onPhoneSubmit={onSubmit}
-                        />     
-                        
-                        </div>
-                        <div>
-                        </div>
-                        </form>
-                        </div> 
+                         <div class="invalid-feedback">
+							         El número de teléfono se ingresó incorrectamente.
+							         </div>
+							         </div>
+						           </div>             
+                                
 
                         <button 
                         class="btn btn-lg btn-blockform-button my-4"  
-                        id="SubmitButton" 
+                        id="submit-button-1" 
                         type="submit" 
                         onClick={submitPhone} 
-                        required> 
-                        
+                        required>  
                        <strong> Solicitar informacion</strong> 
                         </button>  
                         </form>                        
+                        </div>  
+                        <div class="card-footer">                       
+                        </div>
+                        <img src="pay-logos.png" ALT="IMAGEN"></img>
+                        </div>
                         </div> 
-                        <img src="side-banner.jpg" alt="imagen" class="img-fluid mt-5"></img> 
-                        </div> 
-                                    
+                        </div>  
+                        </div>                         
+                        </header>
+
+
+
+	
+	
+                                  
 );
 }
 

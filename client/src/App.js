@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import PhoneInput, { isPossiblePhoneNumber,isValidPhoneNumber } from 'react-phone-number-input';
-import FormPhoneComponent from './form-phone-validation';
 import React, { useEffect, useState } from 'react';
 import en from 'react-phone-number-input/locale/en.json';
 import Axios from "axios";
@@ -160,7 +159,7 @@ import "./style.css";
                                 
 
                         <button 
-                        class="btn btn-lg btn-blockform-button my-4"  
+                        class="btn btn-lg btn-block btn-blockform-button my-4 font-weight-bold btn-1"  
                         id="submit-button-1" 
                         type="submit" 
                         onClick={submitPhone} 

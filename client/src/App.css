@@ -55,10 +55,10 @@ header .heading-1{
 }
 
 input {
-  background: #fff;
+  background: #F69F14;
   color: #525865;
   border-radius: 4px;
-  border: 1px solid #d1d1d1;
+  border: 1px solid #111111;
   box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
   font-family: inherit;
   font-size: 1em;
@@ -156,7 +156,8 @@ form .form-label{
 	background-color: #F69F14;
 	font-size: 21px;
 	width: 600px;
-	border-radius: 15px;
+	border-radius: 15px;	
+	font-weight: bold;
 }
 
 footer{
@@ -283,6 +284,7 @@ footer .navbar a:nth-child(1){
 
 	.form-button{
 		font-size: 18px;
+		
 	}
 
 	.content .heading-5{

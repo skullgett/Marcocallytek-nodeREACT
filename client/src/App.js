@@ -64,6 +64,7 @@ import "./style.css";
 ///////////////////////////////////////////////////////////////////
       
   return ( 
+<body>
 <main>
            <header>    
       		         <div class="container">
@@ -127,7 +128,7 @@ import "./style.css";
                         <div class="form-group">
                         <label class="form-label" for="NúmerodeTeléfono">Phone Number</label>
                         <div class="input-group">
-							          <div class="input-group-prepend col-3 px-0"> 
+							          <div class="input-group-prepend col-3 px-1"> 
                         <input type="text" class="form-control" id="countryCode-1" disabled></input>                       
                         </div>								
 								
@@ -184,6 +185,7 @@ import "./style.css";
         </header>
                 
 </main>
+</body>
         
    
                                   

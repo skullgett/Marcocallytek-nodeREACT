@@ -133,7 +133,7 @@ import "./style.css";
                         id="NúmerodeTeléfono"
                         name="Phone"
                         type="text" 
-                        maxLength="15" 
+                        maxLength="16" 
                         placeholder="Ej. 55 3120 1869" 
                         labels={en}
                         defaultCountry={localStorage.getItem("country")}

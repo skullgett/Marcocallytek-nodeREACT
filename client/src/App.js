@@ -147,7 +147,7 @@ import "./style.css";
                         required
                         />
                         
-                                               {""}
+                         {""}
                         {Phone&& isPossiblePhoneNumber(Phone) ? 
                         "Valid number" : "Please enter a valid number"}
                         <br></br>

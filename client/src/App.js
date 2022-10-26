@@ -90,8 +90,10 @@ import "./style.css";
                         id="nombre"                          
                         onChange={(e)=>{
                         setName(e.target.value)
-                        }} required />  
-                        <div class="invalid-feedback">REQUERIDO</div>  
+                        }}
+                        />  
+                        <div class="invalid-feedback">
+                          </div>  
                         </div>
 
                         <div class="form-group">						  
@@ -102,9 +104,10 @@ import "./style.css";
                         id="apellido"                          
                         onChange={(e)=>{
                         setLastname(e.target.value)
-                        }} required />
+                        }}
+                        />
                         <div class="invalid-feedback">
-						            El apellido es requerido
+						           
 						            </div>
 						            </div>  
 
@@ -115,9 +118,8 @@ import "./style.css";
                         placeholder="Ej. josegarcia@gmail.com" 
                         id="CorreoElectrónico"                          
                         onChange={(e)=>{setEmail(e.target.value)}} 
-                        required/> 
-                        <div class="invalid-feedback">
-						            El correo electrónico se ingresó incorrectamente.
+                        /> 
+                        <div class="invalid-feedback">						            
 						            </div>
 						            </div>        
                         
@@ -151,8 +153,7 @@ import "./style.css";
                         {""}
                         {Phone&& isValidPhoneNumber(Phone) ? 
                         "Valid number for this country" : "Please enter a valid number for this country"}
-                         <div class="invalid-feedback">
-							         El número de teléfono se ingresó incorrectamente.
+                         <div class="invalid-feedback">							         
 							         </div>
 							         </div>
 						           </div>             
